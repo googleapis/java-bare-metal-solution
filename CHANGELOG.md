@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.8](https://github.com/googleapis/java-bare-metal-solution/compare/v0.3.7...v0.3.8) (2022-10-05)
+
+
+### Bug Fixes
+
+* update protobuf to v3.21.7 ([ca3bbfe](https://github.com/googleapis/java-bare-metal-solution/commit/ca3bbfe93f84c95f726ff6cbeb126a81bb910f92))
+
 ## [0.3.7](https://github.com/googleapis/java-bare-metal-solution/compare/v0.3.6...v0.3.7) (2022-10-03)
 
 
