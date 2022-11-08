@@ -16,9 +16,11 @@
 
 package com.google.cloud.baremetalsolution.v2.samples;
 
-// [START baremetalsolution_v2_generated_BareMetalSolutionSettings_GetInstance_sync]
-import com.google.cloud.baremetalsolution.v2.BareMetalSolutionSettings;
-import java.time.Duration;
+// [START baremetalsolution_v2_generated_BareMetalSolution_GetInstance_sync]
+import com.google.cloud.baremetalsolution.v2.BareMetalSolutionClient;
+import com.google.cloud.baremetalsolution.v2.GetInstanceRequest;
+import com.google.cloud.baremetalsolution.v2.Instance;
+import com.google.cloud.baremetalsolution.v2.InstanceName;
 
 public class SyncGetInstance {
 
@@ -32,15 +34,13 @@ public class SyncGetInstance {
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    BareMetalSolutionSettings.Builder bareMetalSolutionSettingsBuilder =
-        BareMetalSolutionSettings.newBuilder();
-    bareMetalSolutionSettingsBuilder
-        .getInstanceSettings()
-        .setRetrySettings(
-            bareMetalSolutionSettingsBuilder.getInstanceSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    BareMetalSolutionSettings bareMetalSolutionSettings = bareMetalSolutionSettingsBuilder.build();
+    try (BareMetalSolutionClient bareMetalSolutionClient = BareMetalSolutionClient.create()) {
+      GetInstanceRequest request =
+          GetInstanceRequest.newBuilder()
+              .setName(InstanceName.of("[PROJECT]", "[LOCATION]", "[INSTANCE]").toString())
+              .build();
+      Instance response = bareMetalSolutionClient.getInstance(request);
+    }
   }
 }
-// [END baremetalsolution_v2_generated_BareMetalSolutionSettings_GetInstance_sync]
+// [END baremetalsolution_v2_generated_BareMetalSolution_GetInstance_sync]
