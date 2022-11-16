@@ -12,6 +12,13 @@ Java idiomatic client for [Bare Metal Solution][product-docs].
 > make backwards-incompatible changes.
 
 
+:bus: In October 2022, this library has moved to
+[google-cloud-java/java-bare-metal-solution](
+https://github.com/googleapis/google-cloud-java/tree/main/java-bare-metal-solution).
+This repository will be archived in the future.
+Future releases will appear in the new repository (https://github.com/googleapis/google-cloud-java/releases).
+The Maven artifact coordinates (`com.google.cloud:google-cloud-bare-metal-solution`) remain the same.
+
 ## Quickstart
 
 
@@ -22,20 +29,20 @@ If you are using Maven, add this to your pom.xml file:
 <dependency>
   <groupId>com.google.cloud</groupId>
   <artifactId>google-cloud-bare-metal-solution</artifactId>
-  <version>0.5.0</version>
+  <version>0.6.0</version>
 </dependency>
 ```
 
 If you are using Gradle without BOM, add this to your dependencies:
 
 ```Groovy
-implementation 'com.google.cloud:google-cloud-bare-metal-solution:0.5.0'
+implementation 'com.google.cloud:google-cloud-bare-metal-solution:0.6.0'
 ```
 
 If you are using SBT, add this to your dependencies:
 
 ```Scala
-libraryDependencies += "com.google.cloud" % "google-cloud-bare-metal-solution" % "0.5.0"
+libraryDependencies += "com.google.cloud" % "google-cloud-bare-metal-solution" % "0.6.0"
 ```
 
 ## Authentication
