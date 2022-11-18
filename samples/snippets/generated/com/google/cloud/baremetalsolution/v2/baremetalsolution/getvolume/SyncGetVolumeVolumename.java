@@ -16,31 +16,27 @@
 
 package com.google.cloud.baremetalsolution.v2.samples;
 
-// [START baremetalsolution_v2_generated_BareMetalSolutionSettings_GetInstance_sync]
-import com.google.cloud.baremetalsolution.v2.BareMetalSolutionSettings;
-import java.time.Duration;
+// [START baremetalsolution_v2_generated_BareMetalSolution_GetVolume_Volumename_sync]
+import com.google.cloud.baremetalsolution.v2.BareMetalSolutionClient;
+import com.google.cloud.baremetalsolution.v2.Volume;
+import com.google.cloud.baremetalsolution.v2.VolumeName;
 
-public class SyncGetInstance {
+public class SyncGetVolumeVolumename {
 
   public static void main(String[] args) throws Exception {
-    syncGetInstance();
+    syncGetVolumeVolumename();
   }
 
-  public static void syncGetInstance() throws Exception {
+  public static void syncGetVolumeVolumename() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    BareMetalSolutionSettings.Builder bareMetalSolutionSettingsBuilder =
-        BareMetalSolutionSettings.newBuilder();
-    bareMetalSolutionSettingsBuilder
-        .getInstanceSettings()
-        .setRetrySettings(
-            bareMetalSolutionSettingsBuilder.getInstanceSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    BareMetalSolutionSettings bareMetalSolutionSettings = bareMetalSolutionSettingsBuilder.build();
+    try (BareMetalSolutionClient bareMetalSolutionClient = BareMetalSolutionClient.create()) {
+      VolumeName name = VolumeName.of("[PROJECT]", "[LOCATION]", "[VOLUME]");
+      Volume response = bareMetalSolutionClient.getVolume(name);
+    }
   }
 }
-// [END baremetalsolution_v2_generated_BareMetalSolutionSettings_GetInstance_sync]
+// [END baremetalsolution_v2_generated_BareMetalSolution_GetVolume_Volumename_sync]

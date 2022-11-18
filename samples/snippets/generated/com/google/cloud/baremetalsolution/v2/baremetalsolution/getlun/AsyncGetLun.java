@@ -16,31 +16,34 @@
 
 package com.google.cloud.baremetalsolution.v2.samples;
 
-// [START baremetalsolution_v2_generated_BareMetalSolutionSettings_GetInstance_sync]
-import com.google.cloud.baremetalsolution.v2.BareMetalSolutionSettings;
-import java.time.Duration;
+// [START baremetalsolution_v2_generated_BareMetalSolution_GetLun_async]
+import com.google.api.core.ApiFuture;
+import com.google.cloud.baremetalsolution.v2.BareMetalSolutionClient;
+import com.google.cloud.baremetalsolution.v2.GetLunRequest;
+import com.google.cloud.baremetalsolution.v2.Lun;
+import com.google.cloud.baremetalsolution.v2.LunName;
 
-public class SyncGetInstance {
+public class AsyncGetLun {
 
   public static void main(String[] args) throws Exception {
-    syncGetInstance();
+    asyncGetLun();
   }
 
-  public static void syncGetInstance() throws Exception {
+  public static void asyncGetLun() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    BareMetalSolutionSettings.Builder bareMetalSolutionSettingsBuilder =
-        BareMetalSolutionSettings.newBuilder();
-    bareMetalSolutionSettingsBuilder
-        .getInstanceSettings()
-        .setRetrySettings(
-            bareMetalSolutionSettingsBuilder.getInstanceSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    BareMetalSolutionSettings bareMetalSolutionSettings = bareMetalSolutionSettingsBuilder.build();
+    try (BareMetalSolutionClient bareMetalSolutionClient = BareMetalSolutionClient.create()) {
+      GetLunRequest request =
+          GetLunRequest.newBuilder()
+              .setName(LunName.of("[PROJECT]", "[LOCATION]", "[VOLUME]", "[LUN]").toString())
+              .build();
+      ApiFuture<Lun> future = bareMetalSolutionClient.getLunCallable().futureCall(request);
+      // Do something.
+      Lun response = future.get();
+    }
   }
 }
-// [END baremetalsolution_v2_generated_BareMetalSolutionSettings_GetInstance_sync]
+// [END baremetalsolution_v2_generated_BareMetalSolution_GetLun_async]

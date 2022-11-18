@@ -16,31 +16,36 @@
 
 package com.google.cloud.baremetalsolution.v2.samples;
 
-// [START baremetalsolution_v2_generated_BareMetalSolutionSettings_GetInstance_sync]
-import com.google.cloud.baremetalsolution.v2.BareMetalSolutionSettings;
-import java.time.Duration;
+// [START baremetalsolution_v2_generated_BareMetalSolution_ListNetworks_sync]
+import com.google.cloud.baremetalsolution.v2.BareMetalSolutionClient;
+import com.google.cloud.baremetalsolution.v2.ListNetworksRequest;
+import com.google.cloud.baremetalsolution.v2.LocationName;
+import com.google.cloud.baremetalsolution.v2.Network;
 
-public class SyncGetInstance {
+public class SyncListNetworks {
 
   public static void main(String[] args) throws Exception {
-    syncGetInstance();
+    syncListNetworks();
   }
 
-  public static void syncGetInstance() throws Exception {
+  public static void syncListNetworks() throws Exception {
     // This snippet has been automatically generated and should be regarded as a code template only.
     // It will require modifications to work:
     // - It may require correct/in-range values for request initialization.
     // - It may require specifying regional endpoints when creating the service client as shown in
     // https://cloud.google.com/java/docs/setup#configure_endpoints_for_the_client_library
-    BareMetalSolutionSettings.Builder bareMetalSolutionSettingsBuilder =
-        BareMetalSolutionSettings.newBuilder();
-    bareMetalSolutionSettingsBuilder
-        .getInstanceSettings()
-        .setRetrySettings(
-            bareMetalSolutionSettingsBuilder.getInstanceSettings().getRetrySettings().toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(30))
-                .build());
-    BareMetalSolutionSettings bareMetalSolutionSettings = bareMetalSolutionSettingsBuilder.build();
+    try (BareMetalSolutionClient bareMetalSolutionClient = BareMetalSolutionClient.create()) {
+      ListNetworksRequest request =
+          ListNetworksRequest.newBuilder()
+              .setParent(LocationName.of("[PROJECT]", "[LOCATION]").toString())
+              .setPageSize(883849137)
+              .setPageToken("pageToken873572522")
+              .setFilter("filter-1274492040")
+              .build();
+      for (Network element : bareMetalSolutionClient.listNetworks(request).iterateAll()) {
+        // doThingsWith(element);
+      }
+    }
   }
 }
-// [END baremetalsolution_v2_generated_BareMetalSolutionSettings_GetInstance_sync]
+// [END baremetalsolution_v2_generated_BareMetalSolution_ListNetworks_sync]
