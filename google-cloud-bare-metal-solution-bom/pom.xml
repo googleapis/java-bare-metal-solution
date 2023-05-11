@@ -75,7 +75,7 @@
       <dependency>
         <groupId>com.google.api.grpc</groupId>
         <artifactId>proto-google-cloud-bare-metal-solution-v2</artifactId>
-        <version>0.3.8</version><!-- {x-version-update:proto-google-cloud-bare-metal-solution-v2:current} -->
+        <version>0.17.0</version><!-- {x-version-update:proto-google-cloud-bare-metal-solution-v2:current} -->
       </dependency>
     </dependencies>
   </dependencyManagement>
